@@ -1,0 +1,30 @@
+﻿@page
+@model cw1004.Pages.CountrysModel
+@{
+}
+
+<h1>Countrys</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Stars
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model._countryInput.GetAll()) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Area)km
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

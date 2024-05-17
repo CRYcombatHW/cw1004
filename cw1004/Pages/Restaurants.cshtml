@@ -1,0 +1,69 @@
+﻿@page
+@model cw1004.Pages.RestaurantsModel
+@{
+    @if (Model.DetailsOfRestaurant is not null) {
+        <div>
+            <h4>Book</h4>
+            <hr />
+            <dl class="row">
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.DetailsOfRestaurant.Id)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.DetailsOfRestaurant.Id)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.DetailsOfRestaurant.Name)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.DetailsOfRestaurant.Name)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.DetailsOfRestaurant.Stars)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.DetailsOfRestaurant.Stars)
+                </dd>
+            </dl>
+        </div>
+        <a href="/Restaurants">back</a>
+	}
+	else {
+        <h1>Library</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        Id
+                    </th>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        Stars
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model._restaurantInput.GetAll()) {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Id)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Stars)
+                        </td>
+                        <td>
+                            <a href="?details=@item.Id">Details</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+	}
+	<div></div>
+}
